@@ -8,14 +8,18 @@ public class Message {
     private final int receiver;
     private final Date send_date;
     private final String content;
-    private boolean isRead=false;
+    private boolean isRead;
+    private final boolean isSystem;
 
-    public Message(int id, int sender, int receiver, Date send_date, String content) {
+    public Message(int id, int sender, int receiver, Date send_date,
+                   String content, boolean isRead, boolean isSystem) {
         this.id = id;
         this.sender = sender;
         this.receiver = receiver;
         this.send_date = send_date;
         this.content = content;
+        this.isRead = isRead;
+        this.isSystem = isSystem;
     }
 
     public int getId() {
@@ -42,7 +46,11 @@ public class Message {
         return isRead;
     }
 
-    public void read(){
-        isRead=true;
+    public boolean isSystem() {
+        return isSystem;
+    }
+
+    public void setRead() {
+        isRead = true;
     }
 }
